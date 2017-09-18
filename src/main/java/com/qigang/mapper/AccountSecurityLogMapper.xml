@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qigang.dao.AccountSecurityLogMapper">
+  <resultMap id="BaseResultMap" type="com.qigang.model.AccountSecurityLog">
+    <constructor>
+      <arg column="SysNo" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="CustomerSysNo" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="CellPhone" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="OperationType" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="OperationName" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="LoginBranchType" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="LoginBranchName" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="Source" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="UrlReferrer" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="ClientIP" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="Note" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="Uuk" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="DeviceId" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="UserAgent" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="CreateTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.qigang.model.AccountSecurityLog">
+    insert into AccountSecurity_Log (SysNo, CustomerSysNo, CellPhone, 
+      OperationType, OperationName, LoginBranchType, 
+      LoginBranchName, Source, UrlReferrer, 
+      ClientIP, Note, Uuk, 
+      DeviceId, UserAgent, CreateTime
+      )
+    values (#{sysno,jdbcType=INTEGER}, #{customersysno,jdbcType=INTEGER}, #{cellphone,jdbcType=NVARCHAR}, 
+      #{operationtype,jdbcType=INTEGER}, #{operationname,jdbcType=NVARCHAR}, #{loginbranchtype,jdbcType=INTEGER}, 
+      #{loginbranchname,jdbcType=NVARCHAR}, #{source,jdbcType=NVARCHAR}, #{urlreferrer,jdbcType=NVARCHAR}, 
+      #{clientip,jdbcType=NVARCHAR}, #{note,jdbcType=NVARCHAR}, #{uuk,jdbcType=NVARCHAR}, 
+      #{deviceid,jdbcType=NVARCHAR}, #{useragent,jdbcType=NVARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qigang.model.AccountSecurityLog">
+    insert into AccountSecurity_Log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sysno != null">
+        SysNo,
+      </if>
+      <if test="customersysno != null">
+        CustomerSysNo,
+      </if>
+      <if test="cellphone != null">
+        CellPhone,
+      </if>
+      <if test="operationtype != null">
+        OperationType,
+      </if>
+      <if test="operationname != null">
+        OperationName,
+      </if>
+      <if test="loginbranchtype != null">
+        LoginBranchType,
+      </if>
+      <if test="loginbranchname != null">
+        LoginBranchName,
+      </if>
+      <if test="source != null">
+        Source,
+      </if>
+      <if test="urlreferrer != null">
+        UrlReferrer,
+      </if>
+      <if test="clientip != null">
+        ClientIP,
+      </if>
+      <if test="note != null">
+        Note,
+      </if>
+      <if test="uuk != null">
+        Uuk,
+      </if>
+      <if test="deviceid != null">
+        DeviceId,
+      </if>
+      <if test="useragent != null">
+        UserAgent,
+      </if>
+      <if test="createtime != null">
+        CreateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sysno != null">
+        #{sysno,jdbcType=INTEGER},
+      </if>
+      <if test="customersysno != null">
+        #{customersysno,jdbcType=INTEGER},
+      </if>
+      <if test="cellphone != null">
+        #{cellphone,jdbcType=NVARCHAR},
+      </if>
+      <if test="operationtype != null">
+        #{operationtype,jdbcType=INTEGER},
+      </if>
+      <if test="operationname != null">
+        #{operationname,jdbcType=NVARCHAR},
+      </if>
+      <if test="loginbranchtype != null">
+        #{loginbranchtype,jdbcType=INTEGER},
+      </if>
+      <if test="loginbranchname != null">
+        #{loginbranchname,jdbcType=NVARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=NVARCHAR},
+      </if>
+      <if test="urlreferrer != null">
+        #{urlreferrer,jdbcType=NVARCHAR},
+      </if>
+      <if test="clientip != null">
+        #{clientip,jdbcType=NVARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=NVARCHAR},
+      </if>
+      <if test="uuk != null">
+        #{uuk,jdbcType=NVARCHAR},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=NVARCHAR},
+      </if>
+      <if test="useragent != null">
+        #{useragent,jdbcType=NVARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

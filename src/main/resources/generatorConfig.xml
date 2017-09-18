@@ -73,11 +73,22 @@
         </javaClientGenerator>
 
 
-        <table tableName="customer" domainObjectName="Customer"
+        <!--MySql表-->
+        <!--<table tableName="customer" domainObjectName="Customer"-->
+               <!--enableSelectByPrimaryKey="true" enableInsert="true" enableDeleteByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+        <!--<table tableName="user" domainObjectName="User"-->
+               <!--enableSelectByPrimaryKey="true" enableInsert="true" enableDeleteByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+
+        <!--SqlServer表-->
+        <table tableName="Customer_LoginLog" domainObjectName="CustomerLoginLog"
                enableSelectByPrimaryKey="true" enableInsert="true" enableDeleteByPrimaryKey="true" enableUpdateByPrimaryKey="true"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
-        <table tableName="user" domainObjectName="User"
+        <table tableName="AccountSecurity_Log" domainObjectName="AccountSecurityLog"
                enableSelectByPrimaryKey="true" enableInsert="true" enableDeleteByPrimaryKey="true" enableUpdateByPrimaryKey="true"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>

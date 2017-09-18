@@ -16,8 +16,13 @@
     </environments>
 
     <mappers>
-        <mapper resource="com/qigang/mapper/CustomerMapper.xml" />
-        <mapper resource="com/qigang/mapper/UserMapper.xml" />
+        <!--MySql表-->
+        <!--<mapper resource="com/qigang/mapper/CustomerMapper.xml" />-->
+        <!--<mapper resource="com/qigang/mapper/UserMapper.xml" />-->
+
+        <!--SqlServer表-->
+        <mapper resource="com/qigang/mapper/CustomerLoginLogMapper.xml" />
+        <mapper resource="com/qigang/mapper/AccountSecurityLogMapper.xml" />
     </mappers>
 
 </configuration>

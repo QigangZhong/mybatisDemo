@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qigang.dao.CustomerLoginLogMapper">
+  <resultMap id="BaseResultMap" type="com.qigang.model.CustomerLoginLog">
+    <constructor>
+      <idArg column="SysNo" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="LoginType" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="LoginBranchType" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="LoginIP" javaType="java.lang.String" jdbcType="NCHAR" />
+      <arg column="CustomerSysNo" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="CreateDate" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="Note" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="UniqueUserKey" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="UserActionType" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="CPSDes" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CheckCount" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="DeviceId" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="CitySysNo" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="PhoneModel" javaType="java.lang.String" jdbcType="NVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    SysNo, LoginType, LoginBranchType, LoginIP, CustomerSysNo, CreateDate, Note, UniqueUserKey, 
+    UserActionType, CPSDes, CheckCount, DeviceId, CitySysNo, PhoneModel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Customer_LoginLog
+    where SysNo = #{sysno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Customer_LoginLog
+    where SysNo = #{sysno,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qigang.model.CustomerLoginLog">
+    insert into Customer_LoginLog (SysNo, LoginType, LoginBranchType, 
+      LoginIP, CustomerSysNo, CreateDate, 
+      Note, UniqueUserKey, UserActionType, 
+      CPSDes, CheckCount, DeviceId, 
+      CitySysNo, PhoneModel)
+    values (#{sysno,jdbcType=INTEGER}, #{logintype,jdbcType=INTEGER}, #{loginbranchtype,jdbcType=INTEGER}, 
+      #{loginip,jdbcType=NCHAR}, #{customersysno,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{note,jdbcType=NVARCHAR}, #{uniqueuserkey,jdbcType=VARCHAR}, #{useractiontype,jdbcType=INTEGER}, 
+      #{cpsdes,jdbcType=VARCHAR}, #{checkcount,jdbcType=INTEGER}, #{deviceid,jdbcType=NVARCHAR}, 
+      #{citysysno,jdbcType=INTEGER}, #{phonemodel,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qigang.model.CustomerLoginLog">
+    insert into Customer_LoginLog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sysno != null">
+        SysNo,
+      </if>
+      <if test="logintype != null">
+        LoginType,
+      </if>
+      <if test="loginbranchtype != null">
+        LoginBranchType,
+      </if>
+      <if test="loginip != null">
+        LoginIP,
+      </if>
+      <if test="customersysno != null">
+        CustomerSysNo,
+      </if>
+      <if test="createdate != null">
+        CreateDate,
+      </if>
+      <if test="note != null">
+        Note,
+      </if>
+      <if test="uniqueuserkey != null">
+        UniqueUserKey,
+      </if>
+      <if test="useractiontype != null">
+        UserActionType,
+      </if>
+      <if test="cpsdes != null">
+        CPSDes,
+      </if>
+      <if test="checkcount != null">
+        CheckCount,
+      </if>
+      <if test="deviceid != null">
+        DeviceId,
+      </if>
+      <if test="citysysno != null">
+        CitySysNo,
+      </if>
+      <if test="phonemodel != null">
+        PhoneModel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sysno != null">
+        #{sysno,jdbcType=INTEGER},
+      </if>
+      <if test="logintype != null">
+        #{logintype,jdbcType=INTEGER},
+      </if>
+      <if test="loginbranchtype != null">
+        #{loginbranchtype,jdbcType=INTEGER},
+      </if>
+      <if test="loginip != null">
+        #{loginip,jdbcType=NCHAR},
+      </if>
+      <if test="customersysno != null">
+        #{customersysno,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=NVARCHAR},
+      </if>
+      <if test="uniqueuserkey != null">
+        #{uniqueuserkey,jdbcType=VARCHAR},
+      </if>
+      <if test="useractiontype != null">
+        #{useractiontype,jdbcType=INTEGER},
+      </if>
+      <if test="cpsdes != null">
+        #{cpsdes,jdbcType=VARCHAR},
+      </if>
+      <if test="checkcount != null">
+        #{checkcount,jdbcType=INTEGER},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=NVARCHAR},
+      </if>
+      <if test="citysysno != null">
+        #{citysysno,jdbcType=INTEGER},
+      </if>
+      <if test="phonemodel != null">
+        #{phonemodel,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qigang.model.CustomerLoginLog">
+    update Customer_LoginLog
+    <set>
+      <if test="logintype != null">
+        LoginType = #{logintype,jdbcType=INTEGER},
+      </if>
+      <if test="loginbranchtype != null">
+        LoginBranchType = #{loginbranchtype,jdbcType=INTEGER},
+      </if>
+      <if test="loginip != null">
+        LoginIP = #{loginip,jdbcType=NCHAR},
+      </if>
+      <if test="customersysno != null">
+        CustomerSysNo = #{customersysno,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        CreateDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null">
+        Note = #{note,jdbcType=NVARCHAR},
+      </if>
+      <if test="uniqueuserkey != null">
+        UniqueUserKey = #{uniqueuserkey,jdbcType=VARCHAR},
+      </if>
+      <if test="useractiontype != null">
+        UserActionType = #{useractiontype,jdbcType=INTEGER},
+      </if>
+      <if test="cpsdes != null">
+        CPSDes = #{cpsdes,jdbcType=VARCHAR},
+      </if>
+      <if test="checkcount != null">
+        CheckCount = #{checkcount,jdbcType=INTEGER},
+      </if>
+      <if test="deviceid != null">
+        DeviceId = #{deviceid,jdbcType=NVARCHAR},
+      </if>
+      <if test="citysysno != null">
+        CitySysNo = #{citysysno,jdbcType=INTEGER},
+      </if>
+      <if test="phonemodel != null">
+        PhoneModel = #{phonemodel,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where SysNo = #{sysno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qigang.model.CustomerLoginLog">
+    update Customer_LoginLog
+    set LoginType = #{logintype,jdbcType=INTEGER},
+      LoginBranchType = #{loginbranchtype,jdbcType=INTEGER},
+      LoginIP = #{loginip,jdbcType=NCHAR},
+      CustomerSysNo = #{customersysno,jdbcType=INTEGER},
+      CreateDate = #{createdate,jdbcType=TIMESTAMP},
+      Note = #{note,jdbcType=NVARCHAR},
+      UniqueUserKey = #{uniqueuserkey,jdbcType=VARCHAR},
+      UserActionType = #{useractiontype,jdbcType=INTEGER},
+      CPSDes = #{cpsdes,jdbcType=VARCHAR},
+      CheckCount = #{checkcount,jdbcType=INTEGER},
+      DeviceId = #{deviceid,jdbcType=NVARCHAR},
+      CitySysNo = #{citysysno,jdbcType=INTEGER},
+      PhoneModel = #{phonemodel,jdbcType=NVARCHAR}
+    where SysNo = #{sysno,jdbcType=INTEGER}
+  </update>
+</mapper>
